@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <None Remove="Assets\Button10Text.png" />
+    <None Remove="Assets\Button5Text.png" />
+    <None Remove="Assets\ButtonSpinText.png" />
+    <None Remove="Assets\circle.png" />
+    <None Remove="Assets\DomCasualD.ttf" />
+    <None Remove="Assets\hexagon.png" />
+    <None Remove="Assets\MenuButton.png" />
+    <None Remove="Assets\octagon.png" />
+    <None Remove="Assets\pentagon.png" />
+    <None Remove="Assets\ShapeUp.png" />
+    <None Remove="Assets\square.png" />
+    <None Remove="Assets\star.png" />
+    <None Remove="Assets\triangle.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
+    <PackageReference Include="MySql.Data" Version="8.3.0" />
+    <PackageReference Include="MySql.Data.EntityFramework" Version="8.3.0" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.0" />
+  </ItemGroup>
+</Project>

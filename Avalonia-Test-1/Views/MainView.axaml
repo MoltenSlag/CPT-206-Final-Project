@@ -1,0 +1,108 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Avalonia_Test_1.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+             x:Class="Avalonia_Test_1.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+	<StackPanel Background="Pink">
+		<Grid HorizontalAlignment="Center">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="150"/>
+				<ColumnDefinition Width="500"/>
+				<ColumnDefinition Width="150"/>
+			</Grid.ColumnDefinitions>
+			<Button Grid.Row="0" Grid.Column="0" Width="40" Height="40" Margin="10" 
+					VerticalAlignment="Top" HorizontalAlignment="Left">
+				<Image Source="/Assets/MenuButton.png" Width="36" Height="36" VerticalAlignment="Center"
+					   HorizontalAlignment="Center"/>
+				<Button.Flyout>
+					<Flyout Placement="BottomEdgeAlignedLeft" ShowMode="TransientWithDismissOnPointerMoveAway">
+						<Border Margin="-15" Background="PaleVioletRed" Padding="5" CornerRadius="15">
+							<StackPanel>
+								<Grid x:Name="FlyoutLoginGrid">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="40"/>
+										<RowDefinition Height="40"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="40"/>
+										<ColumnDefinition Width="140"/>
+									</Grid.ColumnDefinitions>
+									<TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"
+											   VerticalAlignment="Center" FontFamily="Garamond">User:</TextBlock>
+									<TextBox Grid.Row="0" Grid.Column="1" Background="LightGray" FontSize="14" Margin="3"
+											 x:Name="UsernameEntry"/>
+									<TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"
+											   VerticalAlignment="Center" FontFamily="Garamond">Pass:</TextBlock>
+									<TextBox Grid.Row="1" Grid.Column="1" Background="LightGray" FontSize="14" Margin="3" 
+											PasswordChar="*" RevealPassword="False" x:Name="PasswordEntry"/>
+								</Grid>
+								<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+									<Button HorizontalAlignment="Center" Margin="2" x:Name="ButtonLogin" 
+											FontFamily="Garamond" Click="OnButtonLoginClick">Login</Button>
+									<Button HorizontalAlignment="Center" Margin="2" x:Name="ButtonRegister"
+											FontFamily="Garamond" Click="OnButtonRegisterClick">Register</Button>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</Flyout>
+				</Button.Flyout>
+			</Button>
+			<Image Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" 
+				   Margin="10" Height="50" Source="/Assets/ShapeUp.png"/>
+			<StackPanel Margin="5" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right">
+				<TextBlock Margin="0" Text="Points:" Foreground="Purple" FontFamily="Brush Script MT" 
+						   FontSize="20" x:Name="PointsText" HorizontalAlignment="Right"/>
+				<TextBlock Margin="0" Text="Guest" Foreground="Purple" FontFamily="Brush Script MT"
+						   FontSize="20" x:Name="UsernameText" HorizontalAlignment="Right"/>
+			</StackPanel>
+		</Grid>
+		<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+			<Border Background="Linen" Margin="5" CornerRadius="10" Height="358" Width="118" 
+					BorderThickness="2" BorderBrush="Gray">
+				<StackPanel VerticalAlignment="Center">
+					<Image Margin="13" Height="90" Width="90" x:Name="reel11" Source="/Assets/circle.png"/>
+					<Image Margin="13" Height="90" Width="90" x:Name="reel12" Source="/Assets/triangle.png"/>
+					<Image Margin="13" Height="90" Width="90" x:Name="reel13" Source="/Assets/square.png"/>
+				</StackPanel>
+			</Border>
+			<Border Background="Linen" Margin="5" CornerRadius="10" Height="358" Width="118" 
+					BorderThickness="2" BorderBrush="Gray">
+				<StackPanel VerticalAlignment="Center">
+					<Image Margin="13" Height="90" Width="90" x:Name="reel21" Source="/Assets/square.png"/>
+					<Image Margin="13" Height="90" Width="90" x:Name="reel22" Source="/Assets/pentagon.png"/>
+					<Image Margin="13" Height="90" Width="90" x:Name="reel23" Source="/Assets/hexagon.png"/>
+				</StackPanel>
+			</Border>
+			<Border Background="Linen" Margin="5" CornerRadius="10" Height="358" Width="118" 
+					BorderThickness="2" BorderBrush="Gray">
+				<StackPanel VerticalAlignment="Center">
+					<Image Margin="13" Height="90" Width="90" x:Name="reel31" Source="/Assets/hexagon.png"/>
+					<Image Margin="13" Height="90" Width="90" x:Name="reel32" Source="/Assets/octagon.png"/>
+					<Image Margin="13" Height="90" Width="90" x:Name="reel33" Source="/Assets/star.png"/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+			<Button Padding="8" Margin="5" CornerRadius="20" Background="Lime" BorderThickness="2" 
+					BorderBrush="DarkGreen" x:Name="button5" Click="OnButton5Click">
+				<Image Source="/Assets/Button5Text.png" VerticalAlignment="Bottom"/>
+			</Button>
+			<Button Padding="8" Margin="5" CornerRadius="20" Background="Red" BorderThickness="2" 
+					BorderBrush="Maroon" x:Name="button10" Click="OnButton10Click">
+				<Image Source="/Assets/Button10Text.png"/>
+			</Button>
+			<Button Padding="8" Margin="5" CornerRadius="20" Background="Violet" BorderThickness="2" 
+					BorderBrush="Indigo" x:Name="buttonSpin" Click="OnButtonSpinClick" IsEnabled="False">
+				<Image Source="/Assets/ButtonSpinText.png"/>
+			</Button>
+		</StackPanel>
+	</StackPanel>
+</UserControl>
